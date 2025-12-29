@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Share Tech Mono", monospace;
+    background: #050505;
+    color: #00ff9c;
+}
+
+.scanlines {
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(0,0,0,0.03) 2px
+    );
+    pointer-events: none;
+    z-index: 999;
+}
+
+.lang-switch {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.lang-switch button {
+    background: black;
+    border: 1px solid #00ff9c;
+    color: #00ff9c;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section {
+    padding: 80px 10%;
+}
+
+.card {
+    border: 1px solid #00ff9c;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.terminal {
+    border: 1px solid red;
+    color: red;
+    padding: 20px;
+    margin-top: 20px;
+    background: black;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    border-top: 1px solid #00ff9c;
+    padding: 20px;
+}
+/* Przyciski w stylu terminala / cyberpunk */
+button[data-i18n] {
+    background: transparent;
+    border: 1px solid #00ff9c;
+    color: #00ff9c;
+    font-family: "Share Tech Mono", monospace;
+    font-size: 16px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+
+
+
+
+button[data-i18n]:hover {
+    background: #00ff9c;
+    color: #000;
+    box-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c;
+}
+/* Efekt glitch po kliknięciu */
+button[data-i18n].glitch-click {
+    position: relative;
+    overflow: hidden;
+}
+
+button[data-i18n].glitch-click:active {
+    animation: glitchAnim 0.3s ease-in-out;
+}
+
+@keyframes glitchAnim {
+    0% {
+        transform: translate(0px, 0px);
+        color: #00ff9c;
+        text-shadow: none;
+    }
+    25% {
+        transform: translate(-2px, 1px);
+        color: #ff005c;
+        text-shadow: 1px 0 #00fff0;
+    }
+    50% {
+        transform: translate(2px, -1px);
+        color: #00fff0;
+        text-shadow: -1px 0 #ff005c;
+    }
+    75% {
+        transform: translate(-1px, 2px);
+        color: #ff00f0;
+        text-shadow: 1px 1px #00ff9c;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        color: #00ff9c;
+        text-shadow: none;
+    }
+}
+.about-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.about-images img {
+    max-width: 300px;
+    width: 100%;
+    border: 2px solid #00ff9c;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00ff9c;
+    transition: transform 0.3s;
+}
+
+.about-images img:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+
