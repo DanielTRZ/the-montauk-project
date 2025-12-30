@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,17 +7,13 @@
 <link rel="stylesheet" href="style.css">
 <script defer src="main.js"></script>
 </head>
-
 <body>
 
 <div class="scanlines"></div>
 
 <div class="lang-switch">
-  <div class="lang-switch">
     <button data-lang="pl">PL</button>
     <button data-lang="en">EN</button>
-</div>
-
 </div>
 
 <section class="hero">
@@ -30,43 +27,41 @@
     <p data-i18n="about_1"></p>
     <p data-i18n="about_2"></p>
     <p data-i18n="about_3"></p>
-    
-      <!-- Zdjęcia -->
-  <div class="about-images">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/New_York_-_Montauk_Point_-_NARA_-_68145561.jpg" alt="National Archives and Records Administration, Public domain, via Wikimedia Commons" />
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/At_Long_Island_2023_139.jpg" alt="Photograph by Mike Peel (www.mikepeel.net)., CC BY-SA 4.0 <https://creativecommons.org/licenses/by-sa/4.0>, via Wikimedia Commons" />
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/New_York_-_Montauk_Point_-_NARA_-_68145557.jpg" alt="National Archives and Records Administration, Public domain, via Wikimedia Commons" />
-  </div>
+    <p data-i18n="about_4"></p>
+    <p data-i18n="about_5"></p>
+    <p data-i18n="about_6"></p>
+    <p data-i18n="about_7"></p>
+    <p data-i18n="about_8"></p>
+    <p data-i18n="about_9"></p>
+    <p data-i18n="about_10"></p>
+    <p data-i18n="about_11"></p>
+    <p data-i18n="about_12"></p>
+    <p data-i18n="about_13"></p>
+    <p data-i18n="about_14"></p>
+    <p data-i18n="about_15"></p>
+    <p data-i18n="about_16"></p>
+    <p data-i18n="about_17"></p>
+    <p data-i18n="about_18"></p>
+    <p data-i18n="about_19"></p>
+    <p data-i18n="about_20"></p>
 
+    <div class="about-images">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/New_York_-_Montauk_Point_-_NARA_-_68145561.jpg" alt="National Archives"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/At_Long_Island_2023_139.jpg" alt="Photograph by Mike Peel"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/New_York_-_Montauk_Point_-_NARA_-_68145557.jpg" alt="National Archives"/>
+    </div>
 </section>
 
 <section id="theories">
     <h2 data-i18n="theories_title"></h2>
-
-    <div class="card">
-        <h3 data-i18n="t1_title"></h3>
-        <p data-i18n="t1_text"></p>
-    </div>
-
-    <div class="card">
-        <h3 data-i18n="t2_title"></h3>
-        <p data-i18n="t2_text"></p>
-    </div>
-
-    <div class="card">
-        <h3 data-i18n="t3_title"></h3>
-        <p data-i18n="t3_text"></p>
-    </div>
-
-    <div class="card">
-        <h3 data-i18n="t4_title"></h3>
-        <p data-i18n="t4_text"></p>
-    </div>
-
-    <div class="card">
-        <h3 data-i18n="t5_title"></h3>
-        <p data-i18n="t5_text"></p>
-    </div>
+    <div class="card"><h3 data-i18n="t1_title"></h3><p data-i18n="t1_text"></p></div>
+    <div class="card"><h3 data-i18n="t2_title"></h3><p data-i18n="t2_text"></p></div>
+    <div class="card"><h3 data-i18n="t3_title"></h3><p data-i18n="t3_text"></p></div>
+    <div class="card"><h3 data-i18n="t4_title"></h3><p data-i18n="t4_text"></p></div>
+    <div class="card"><h3 data-i18n="t5_title"></h3><p data-i18n="t5_text"></p></div>
+    <div class="card"><h3 data-i18n="t6_title"></h3><p data-i18n="t6_text"></p></div>
+    <div class="card"><h3 data-i18n="t7_title"></h3><p data-i18n="t7_text"></p></div>
+    <div class="card"><h3 data-i18n="t8_title"></h3><p data-i18n="t8_text"></p></div>
 </section>
 
 <section id="timeline">
@@ -80,43 +75,26 @@
     </ul>
 </section>
 
-<section id="test">
-    <h2 data-i18n="test_title"></h2>
-
-    <p data-i18n="q1"></p>
-    <button onclick="answer(1)" data-i18n="yes"></button>
-    <button onclick="answer(0)" data-i18n="no"></button>
-
-    <p data-i18n="q2"></p>
-    <button onclick="answer(1)" data-i18n="yes"></button>
-    <button onclick="answer(0)" data-i18n="no"></button>
-
-    <p data-i18n="q3"></p>
-    <button onclick="answer(1)" data-i18n="yes"></button>
-    <button onclick="answer(0)" data-i18n="no"></button>
-
-    <div id="result"></div>
-</section>
-
 <section id="access">
     <h2 data-i18n="access_title"></h2>
     <input id="code" placeholder="ACCESS CODE">
-    <button onclick="unlock()" data-i18n="verify"></button>
+    <button id="verify-btn" data-i18n="verify"></button>
 
     <div id="secret" class="terminal hidden">
-        ACCESS GRANTED — FILES UNLOCKED
+        <div id="terminal-output"></div>
+        <input id="terminal-input" placeholder="Type a command..." />
     </div>
 </section>
 
-<div id="final" class="terminal hidden">
-    FINAL PROTOCOL ACTIVATED
-</div>
+<div id="final" class="terminal hidden">FINAL PROTOCOL ACTIVATED</div>
 
 <footer>
     <p>PROJECT MONTAUK — ARCHIVE</p>
     <p>Daniel Trzeciński</p>
     <p>montauk1983</p>
 </footer>
+
+<div id="hint"></div>
 
 </body>
 </html>

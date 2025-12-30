@@ -1,97 +1,183 @@
+
 let score = 0;
 let lang = "pl";
 
+// Poprawny kod (zmień według potrzeb)
+const correctCode = "montauk1983";
+
 // Teksty w obu językach
 const texts = {
-en: {
-    subtitle: "Declassified Conspiracy Archive",
-    enter: "ENTER ARCHIVES",
-    about_title: "What Was Project Montauk?",
-    about_1: "Project Montauk allegedly operated at Camp Hero, Long Island, under the supervision of the U.S. military. It officially started in the early 1970s and reportedly continued until the mid-1980s. Numerous witnesses claim strange phenomena occurred on-site, including unexplainable disappearances and anomalous events.",
-    about_2: "The project is believed to have been a continuation of previous secret programs, notably MKUltra and the Philadelphia Experiment. Researchers allegedly aimed to expand human potential, manipulate consciousness, and experiment with unconventional technology.",
-    about_3: "Children, referred to as the 'Montauk Boys,' were reportedly recruited or abducted to test psychic abilities. Experiments included remote viewing, telepathy, and time perception manipulation. Witness accounts suggest extreme psychological conditioning was applied.",
-    about_4: "Equipment such as the 'Montauk Chair' was allegedly used to amplify psychic abilities. Experiments were claimed to involve mind control, trauma-based programming, and attempts to influence or observe alternate timelines.",
-    about_5: "Some theories suggest interdimensional portals were opened, allowing access to other realities. Personnel reported encounters with unknown entities and temporal anomalies, creating a legend of a 'hidden world within Camp Hero.'",
-    about_6: "Despite official denials and sealed documents, testimonies, declassified reports, and speculative reconstructions in media continue to fuel interest. Project Montauk remains one of the most intriguing conspiracy theories of modern times.",
+    en: {
+        subtitle:"Declassified Conspiracy Archive",
+        enter:"ENTER ARCHIVES",
+        about_title:"What Was Project Montauk?",
+       about_1: "The Montauk Project is one of the most famous conspiracy theories alleging secret U.S. government experiments conducted at Camp Hero in Montauk, New York. Although historically the site was a radar station during the Cold War, legends speak of much deeper research.",
 
-    theories_title: "Main Theories",
-    t1_title: "🧠 Mind Control",
-    t1_text: "Project Montauk allegedly used advanced psychological techniques to control consciousness. Trauma-based programming, hypnosis, and sensory deprivation were reportedly applied to shape behavior and memory. The military aimed to create operatives capable of executing covert missions with enhanced obedience. Survivors describe intense mental conditioning. Some theorists link these experiments to mind control programs worldwide. Evidence is largely anecdotal, but compelling testimonies persist.",
-    t2_title: "🧒 Montauk Boys",
-    t2_text: "Children were reportedly central to experiments aimed at enhancing psychic capabilities. Remote viewing, telepathy, and extraordinary cognitive tasks were allegedly tested. Abductions, recruitment under false pretenses, and psychological conditioning are cited in testimonies. The boys were supposedly able to project consciousness across time and space. Allegations include involvement of alien technology. These experiments continue to inspire fiction and conspiracy theories.",
-    t3_title: "🕳️ Time Travel",
-    t3_text: "Some witnesses claim the project developed experimental time travel methods. Subjects allegedly experienced temporal displacement into past or parallel timelines. Equipment such as the Montauk Chair was said to be crucial. Observers reported visions of alternate realities and historical events. Some researchers suggest temporal loops and causality experiments were performed. These claims remain highly controversial and unverified.",
-    t4_title: "👁️ Portals",
-    t4_text: "Interdimensional portals are a recurring element in Montauk stories. These openings supposedly allowed glimpses into other dimensions or future events. Personnel reported seeing unknown entities and phenomena inconsistent with reality. The portals were linked to psychic amplification equipment. These experiences contributed to the mythology surrounding Montauk. Some theories suggest portals were also linked to alien technology.",
-    t5_title: "👽 Alien Tech",
-    t5_text: "Reverse-engineered alien technology is suggested to have played a role in amplifying psychic experiments. Devices of unknown origin allegedly helped manipulate time and consciousness. Some claim crashed UFOs were used as research sources. The integration of this technology purportedly enabled the creation of interdimensional portals. Evidence is speculative, but it fuels popular culture depictions. Researchers and authors continue to explore this narrative.",
+about_2: "The story of Montauk emerged in the 1992 book \"The Montauk Project: Experiments in Time,\" by Preston Nichols and Peter Moon, who claimed to have recovered memories of their involvement in the project.",
 
-    timeline_title: "Timeline",
-    time1: "1947 – Camp Hero becomes a military base",
-    time2: "1969 – Early radar and psychic experiments",
-    time3: "1971 – Development of the Montauk Chair",
-    time4: "1983 – Alleged incident terminating the project",
-    time5: "1992 – Official shutdown and archives sealed",
+about_3: "According to conspiracy proponents, the project began as a continuation of earlier government research on mind manipulation and psychological warfare, linked to the MK-Ultra program.",
 
-    media_title: "Films & Series",
-    test_title: "Montauk Psychological Assessment",
-    q1: "Do you feel time differently when alone?",
-    q2: "Have you dreamed of unknown places?",
-    q3: "Do you trust your memories?",
-    yes: "YES", no: "NO",
-    access_title: "Restricted Access",
-    verify: "VERIFY"
-},
-pl: {
-    subtitle: "Odtajnione Archiwum Spiskowe",
-    enter: "WEJDŹ DO ARCHIWÓW",
-    about_title: "Czym był Projekt Montauk?",
-    about_1: "Projekt Montauk rzekomo działał w Camp Hero na Long Island pod nadzorem wojska USA. Oficjalnie rozpoczął się na początku lat 70., a podobno trwał do połowy lat 80. Liczni świadkowie donoszą o dziwnych zjawiskach na miejscu, w tym o niewyjaśnionych zniknięciach i anomaliach.",
-    about_2: "Projekt uważany jest za kontynuację wcześniejszych tajnych programów, w szczególności MKUltra i Eksperymentu Filadelfijskiego. Naukowcy mieli rzekomo rozszerzać możliwości ludzkie, manipulować świadomością i eksperymentować z nietypową technologią.",
-    about_3: "Dzieci, nazywane 'Chłopcami z Montauk', miały być rekrutowane lub porywane, aby testować zdolności psychiczne. Eksperymenty obejmowały zdalne postrzeganie, telepatię i manipulację percepcją czasu. Świadkowie opisują ekstremalne warunki psychologiczne.",
-    about_4: "Sprzęt, taki jak 'Krzesło Montauk', rzekomo służył do wzmocnienia zdolności psychicznych. Eksperymenty obejmowały kontrolę umysłu, programowanie oparte na traumie i próby obserwowania alternatywnych linii czasowych.",
-    about_5: "Niektóre teorie mówią o otwarciu portali międzywymiarowych, umożliwiających dostęp do innych rzeczywistości. Personel raportował spotkania z nieznanymi bytami i anomalie czasowe, tworząc legendę 'ukrytego świata w Camp Hero'.",
-    about_6: "Pomimo oficjalnych zaprzeczeń i zarchiwizowanych dokumentów, zeznania świadków, zdeklasowane raporty i rekonstrukcje medialne nadal podsycają zainteresowanie. Projekt Montauk pozostaje jedną z najbardziej fascynujących teorii spiskowych współczesności.",
+about_4: "Officially, Camp Hero was a radar defense station that closed in 1969, long before it became the center of Montauk conspiracy lore.",
 
-    theories_title: "Główne Teorie",
-    t1_title: "🧠 Kontrola Umysłu",
-    t1_text: "Projekt Montauk rzekomo wykorzystywał zaawansowane techniki psychologiczne w celu kontroli świadomości. Programowanie oparte na traumie, hipnoza i deprywacja sensoryczna miały kształtować zachowanie i pamięć. Celem było stworzenie agentów zdolnych do wykonywania tajnych misji z pełną posłusznością. Świadkowie opisują intensywne warunki psychiczne. Niektórzy teoretycy wiążą te eksperymenty z programami kontroli umysłu na całym świecie. Dowody są głównie anegdotyczne, ale świadectwa są przekonujące.",
-    t2_title: "🧒 Chłopcy z Montauk",
-    t2_text: "Dzieci rzekomo były centralnym elementem eksperymentów mających na celu rozwinięcie zdolności psychicznych. Testowano zdalne postrzeganie, telepatię i niezwykłe zadania poznawcze. Świadectwa mówią o porywaniach, rekrutacji pod fałszywymi pretekstami i warunkowaniu psychicznym. Chłopcy mieli rzekomo umiejętność projekcji świadomości w czasie i przestrzeni. Niektóre zeznań obejmują udział technologii pozaziemskiej. Eksperymenty te nadal inspirują literaturę i teorie spiskowe.",
-    t3_title: "🕳️ Podróże w Czasie",
-    t3_text: "Niektórzy świadkowie twierdzą, że projekt opracował metody eksperymentalnej podróży w czasie. Uczestnicy mieli doświadczać przesunięć czasowych do przeszłości lub równoległych linii czasowych. Sprzęt taki jak Krzesło Montauk był kluczowy. Obserwatorzy raportowali wizje alternatywnych rzeczywistości i wydarzeń historycznych. Niektórzy badacze sugerują, że przeprowadzano eksperymenty z pętlami czasowymi i przyczynowością. Twierdzenia te pozostają kontrowersyjne i niezweryfikowane.",
-    t4_title: "👁️ Portale",
-    t4_text: "Portale międzywymiarowe to powtarzający się element opowieści o Montauk. Rzekomo umożliwiały obserwowanie innych wymiarów lub przyszłych wydarzeń. Personel raportował spotkania z nieznanymi bytami i zjawiska sprzeczne z rzeczywistością. Portale miały być powiązane z urządzeniami wzmacniającymi zdolności psychiczne. Doświadczenia te przyczyniły się do mitologii Montauk. Niektóre teorie sugerują powiązanie portali z technologią pozaziemską.",
-    t5_title: "👽 Technologia Obcych",
-    t5_text: "Sugeruje się, że odzyskana technologia pozaziemska była używana do wzmacniania eksperymentów psychicznych. Urządzenia nieznanego pochodzenia miały pomagać w manipulacji czasem i świadomością. Niektórzy twierdzą, że wykorzystano rozbite UFO jako źródło badań. Integracja tej technologii rzekomo umożliwiała tworzenie portali międzywymiarowych. Dowody są spekulacyjne, ale inspirują popkulturę. Badacze i autorzy nadal eksplorują tę narrację.",
+about_5: "One of the central elements of the narrative is the so-called \"Montauk Chair,\" an alleged electromagnetic device used to amplify psychic abilities.",
 
-    timeline_title: "Oś Czasu",
-    time1: "1947 – Camp Hero staje się bazą wojskową",
-    time2: "1969 – Wczesne eksperymenty radarowe i psychiczne",
-    time3: "1971 – Opracowanie Krzesła Montauk do kontroli umysłu",
-    time4: "1983 – Rzekomy incydent kończący projekt",
-    time5: "1992 – Oficjalne zamknięcie i zarchiwizowanie materiałów",
+about_6: "Followers of the theory say the project included research into telepathy, psychokinesis, and other unusual human capabilities, intended to give military advantage.",
 
-    media_title: "Filmy i Seriale",
-    test_title: "Test Psychologiczny Montauk",
-    q1: "Czy czas płynie inaczej gdy jesteś sam?",
-    q2: "Czy śniłeś o miejscach, których nie znasz?",
-    q3: "Czy ufasz swoim wspomnieniom?",
-    yes: "TAK", no: "NIE",
-    access_title: "Dostęp Zastrzeżony",
-    verify: "SPRAWDŹ"
-}
+about_7: "Some accounts claim that individuals with psychic talents, including children, were recruited or kidnapped for experimental purposes.",
+
+about_8: "Conspiracy writers often link Montauk with the Philadelphia Experiment, a legendary alleged attempt to manipulate time and make a navy ship invisible.",
+
+about_9: "Proponents argue that concepts from the Philadelphia Experiment were incorporated into Montauk’s later research on time and consciousness.",
+
+about_10: "Some believers assert that extensive underground facilities existed beneath Camp Hero, although no such infrastructure is officially acknowledged.",
+
+about_11: "Alleged experiments reportedly involved time travel and opening portals to other dimensions, one of the most extraordinary aspects of the legend.",
+
+about_12: "According to some stories, participants experienced transportation of objects and people through time and space.",
+
+about_13: "Certain claims suggest that these activities transformed subjects into beings capable of manipulating reality itself.",
+
+about_14: "While no official agency has confirmed such experiments, the Montauk lore has gained widespread popularity in alternative culture.",
+
+about_15: "Critics note that many reports come from personal narratives without verifiable evidence.",
+
+about_16: "Nevertheless, the tales of Montauk have become the basis of numerous books, podcasts, and discussions about secret human experimentation.",
+
+about_17: "Over time, legends expanded to include alleged alien contacts and tests of technology alleged to originate from UFOs.",
+
+about_18: "The Montauk Project also inspired the creators of \"Stranger Things,\" whose working title was originally Montauk before the setting was changed.",
+
+about_19: "Even today, Camp Hero attracts conspiracy enthusiasts exploring the old base for traces of its supposed activities.",
+
+about_20: "Although most experts regard the Montauk Project as an urban legend, fascination with mystery and unexplained phenomena persists.",
+
+        theories_title:"Main Theories",    
+        t1_title:"🧠 Mind Control",
+t1_text:"Some claim Montauk was used to develop mind control and psychological warfare techniques, extending controversial research into human behavior manipulation.",
+
+t2_title:"🧒 Montauk Boys",
+t2_text:"According to the legend, children were used in tests of psychic abilities because they were believed to have heightened perceptions, making them important to the project’s goals.",
+
+t3_title:"🕳️ Time Travel",
+t3_text:"One famous theory says that Montauk conducted research into time travel and spacetime manipulation, connecting it to stories about the Philadelphia Experiment.",
+
+t4_title:"👁️ Portals & Dimensions",
+t4_text:"Some proponents claim the project opened portals to other dimensions or realities, allowing access to alternate worlds and beings.",
+
+t5_title:"👽 Alien Technology",
+t5_text:"Legend has it the government had contact with or used alien technology to enhance its psychic experiments at Montauk.",
+
+t6_title:"📡 Energy Manipulation",
+t6_text:"Montauk was supposedly experimenting with electromagnetic waves and energy fields to influence minds and behaviors as part of psychological warfare.",
+
+t7_title:"🐉 Creatures & Manifestations",
+t7_text:"Some narratives describe strange creatures allegedly encountered or summoned at Camp Hero, contributing to paranormal mythology.",
+
+t8_title:"⏳ Alternate Timelines",
+t8_text:"Theories suggest certain experiments created alternate timelines or parallel realities that observers might have witnessed."
+,
+        timeline_title:"Timeline",
+        time1:"1947 – Camp Hero becomes a military base",
+        time2:"1969 – Early radar and psychic experiments",
+        time3:"1971 – Development of the Montauk Chair",
+        time4:"1983 – Alleged incident terminating the project",
+        time5:"1992 – Official shutdown and archives sealed",
+        access_title:"Restricted Access",
+        verify:"VERIFY",
+        terminal_placeholder:"Type a command...",
+        hint:"ENTER CODE — HINT IS IN THE APP"
+    },
+    pl: {
+        subtitle:"Odtajnione Archiwum Spiskowe",
+        enter:"WEJDŹ DO ARCHIWÓW",
+        about_title:"Czym był Projekt Montauk?",
+       about_1: "Projekt Montauk to jedna z najbardziej znanych teorii spiskowych o rzekomych tajnych eksperymentach rządu USA prowadzonych w Camp Hero na Long Island, Nowy Jork. Historycznie baza ta była wykorzystana do obrony wybrzeża krótkofalowymi radarami w czasach zimnej wojny, ale legendy mówią o o wiele głębszych badaniach.",
+
+about_2: "Początki opowieści o Montauk sięgają publikacji książki \"The Montauk Project: Experiments in Time\" z 1992 roku, napisanej przez Prestona Nicholsa i Petera Moona, którzy twierdzili, że odzyskali wspomnienia o własnym udziale w projekcie.",
+
+about_3: "Według zwolenników teorii, projekt miał rozpocząć się jako kontynuacja wcześniejszych rządowych badań nad manipulacją świadomością i psychologią w celach wojskowych, powiązanych z programem MK-Ultra.",
+
+about_4: "Oficjalnie baza Camp Hero była stacją radarową używaną do obrony wybrzeża USA i została zamknięta w 1969 roku, zanim stała się częścią kampanii spiskowej Montauk.",
+
+about_5: "Jednym z głównych elementów opowieści jest tzw. \"Montauk Chair\", urządzenie rzekomo wykorzystujące pole elektromagnetyczne do wzmacniania zdolności psychicznych badanych.",
+
+about_6: "Zwolennicy teorii twierdzą, że projekt obejmował badania nad telepatią, telekinezją i innymi nietypowymi zdolnościami ludzkimi, których rozwinięcie miało dawać przewagę militarną.",
+
+about_7: "Według opowieści, rząd miał porywać lub rekrutować osoby z wybranymi zdolnościami psychicznymi, szczególnie dzieci, które podobno miały większe możliwości w projektowanych eksperymentach.",
+
+about_8: "Teorie spiskowe łączą Projekt Montauk z rzekomym \"Eksperymentem Filadelfia\", który miał zbadać możliwość manipulacji czasoprzestrzenią i niewidzialności radarowej, chociaż żadnych oficjalnych dowodów na to nie ma.",
+
+about_9: "Zwolennicy twierdzą, że elementy teorii Filadelfijskiej zostały wykorzystane później w Montauk, co miało prowadzić do jeszcze bardziej zaawansowanych badań nad czasem i świadomością.",
+
+about_10: "Niektórzy badacze spiskowi twierdzą, że pod bazą Camp Hero znajdowały się rozległe, podziemne kompleksy badawcze, chociaż oficjalnie żadna taka infrastruktura nie została potwierdzona.",
+
+about_11: "Rzekome eksperymenty miały dotyczyć także podróży w czasie i otwierania portali do innych wymiarów, co jest jedną z najbardziej fantastycznych części legendy Montauk.",
+
+about_12: "Według relacji publikowanych w książkach, niektórzy uczestnicy twierdzili, że doświadczenia w projekcie obejmowały przenoszenie obiektów i ludzi w czasie i przestrzeni.",
+
+about_13: "Pewne opowieści sugerują, że te działania miały przekształcić uczestników w istoty zdolne manipulować rzeczywistością w sposób podobny do telekinezy czy kontroli umysłu.",
+
+about_14: "Chociaż żadna oficjalna agencja rządowa nigdy nie potwierdziła istnienia takich eksperymentów, legendy o Montauk zyskały ogromną popularność w internecie i kulturze alternatywnej.",
+
+about_15: "Krytycy teorii podkreślają, że wiele z relacji pochodzi z pamiętników i narracji osobistych, bez potwierdzonych źródeł i dowodów.",
+
+about_16: "Mimo sceptycyzmu, opowieści o Montauk stały się fundamentem licznych książek, podcastów i dyskusji o tajnych eksperymentach na ludziach.",
+
+about_17: "Z czasem legendy wokół Montauk zaczęły obejmować także rzekome kontakty z istotami pozaziemskimi albo testy technologii pochodzącej z UFO.",
+
+about_18: "Projekt Montauk zainspirował także twórców serialu \"Stranger Things\", którzy pierwotnie planowali umieścić akcję w Montauk, zanim przenieśli ją do Hawkins.",
+
+about_19: "Nawet dziś, Camp Hero przyciąga uwagę miłośników teorii spiskowych, którzy eksplorują teren dawnej bazy i szukają śladów rzekomej działalności.",
+
+about_20: "Chociaż większość ekspertów uważa Projekt Montauk za legendę miejską bez faktycznych dowodów, fascynacja tajemnicą i niewyjaśnionymi zjawiskami trwa nadal.",
+
+        theories_title:"Główne Teorie",    
+       t1_title:"🧠 Kontrola Umysłu",
+t1_text:"Niektórzy twierdzą, że Montauk był używany do rozwijania technik kontroli umysłu i manipulacji psychologicznej, rozszerzając kontrowersyjne badania nad MK-Ultra.",
+
+t2_title:"🧒 Chłopcy z Montauk",
+t2_text:"Według legendy rząd miał wykorzystywać dzieci do testów nad zdolnościami psychicznymi, ponieważ młodzi badani mieli większą percepcję i intuicję, co czyniło ich eksperymenty ważnymi dla projektu.",
+
+t3_title:"🕳️ Podróże w Czasie",
+t3_text:"Jedna z najbardziej znanych teorii mówi, że Montauk prowadził badania nad podróżami w czasie i manipulacją czasoprzestrzenią, łącząc je z wcześniejszymi opowieściami o eksperymentach Filadelfia.",
+
+t4_title:"👁️ Portale i Wymiary",
+t4_text:"Niektórzy zwolennicy historii twierdzą, że projekt otworzył portale do innych wymiarów lub rzeczywistości, umożliwiając dostęp do alternatywnych światów i istot.",
+
+t5_title:"👽 Technologia Obcych",
+t5_text:"W legendach pojawia się przekonanie, że rząd miał kontakt z technologią pozaziemską lub wykorzystał ją do wzmocnienia eksperymentów psychicznych.",
+
+t6_title:"📡 Manipulacja Energią",
+t6_text:"Projekty Montauk miały rzekomo eksperymentować z falami elektromagnetycznymi i polami energetycznymi w celu wpływania na umysły i zachowania, co czyniło je elementem psychologicznej wojny.",
+
+t7_title:"🐉 Kreatury i Manifestacje",
+t7_text:"Niektóre relacje opisują dziwne stworzenia rzekomo przywoływane lub obserwowane w bazie Camp Hero, tworząc mitologię o paranormalnych manifestacjach.",
+
+t8_title:"⏳ Alternatywne Linie Czasu",
+t8_text:"Teorie sugerują, że niektóre eksperymenty miały skutkować powstawaniem alternatywnych linii czasowych lub równoległych rzeczywistości, które obserwatorzy rzekomo mogli widzieć.",
+
+        timeline_title:"Oś Czasu",
+        time1:"1947 – Camp Hero staje się bazą wojskową",
+        time2:"1969 – Wczesne eksperymenty radarowe i psychiczne",
+        time3:"1971 – Opracowanie Krzesła Montauk do kontroli umysłu",
+        time4:"1983 – Rzekomy incydent kończący projekt",
+        time5:"1992 – Oficjalne zamknięcie i zarchiwizowanie materiałów",
+        access_title:"Dostęp Zastrzeżony",
+        verify:"SPRAWDŹ",
+        terminal_placeholder:"Wpisz komendę...",
+        hint:"WPROWADŹ KOD — PODPOWIEDŹ JEST W APLIKACJI"
+    }
 };
 
 // Funkcja ustawiająca język
 function setLang(l){
     lang = l;
     document.querySelectorAll("[data-i18n]").forEach(el=>{
-        el.innerText = texts[lang][el.dataset.i18n];
+        el.innerText = texts[lang][el.dataset.i18n] || "";
     });
+    const terminalInput = document.getElementById("terminal-input");
+    if(terminalInput) terminalInput.placeholder = texts[lang].terminal_placeholder;
 }
-
-// Domyślny język
 setLang(lang);
 
 // Smooth scroll
@@ -99,119 +185,106 @@ function scrollToSection(id){
     document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-// Test psychologiczny
-function answer(v){
-    score += v;
-    document.getElementById("result").innerText =
-        score <=1 ? "OBSERVER" :
-        score<=3 ? "SUBJECT" :
-        score<=5 ? "ASSET" : "REJECTED";
+// HINT
+function showHint(){
+    const hintDiv = document.getElementById("hint");
+    hintDiv.innerText = texts[lang].hint;
+    hintDiv.style.display = "block";
+    setTimeout(()=>{hintDiv.style.display="none";},5000);
 }
 
-// Unlock sekcji z kodem
-function unlock(){
-    if(document.getElementById("code").value.toLowerCase()==="montauk1983"){
+// Obsługa przycisku SPRAWDŹ
+document.getElementById("verify-btn").addEventListener("click", () => {
+    const userInput = document.getElementById("code").value.trim();
+    if(userInput === correctCode){
+        document.getElementById("verify-btn").style.display = "none";
+        document.getElementById("code").style.display = "none";
         document.getElementById("secret").classList.remove("hidden");
-    }
-}
-
-// Odsłonięcie finalnej sekcji po "l"
-document.addEventListener("keydown",e=>{
-    if(e.key.toLowerCase()==="l"){
-        document.getElementById("final").classList.remove("hidden");
+        document.getElementById("secret").scrollIntoView({behavior:"smooth"});
+        addTerminalLine("Welcome to Montauk terminal. Type 'help' for commands.");
+    } else {
+        showHint();
     }
 });
 
-// Poprawne działanie przycisków językowych
-document.querySelectorAll(".lang-switch button").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const langAttr = btn.dataset.lang; // pobiera PL lub EN
-        setLang(langAttr);
-        glitchClick(btn); // efekt glitch przy kliknięciu
+// Przełączanie języków
+document.querySelectorAll(".lang-switch button").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+        setLang(btn.dataset.lang);
     });
 });
 
-// Funkcja dodająca glitch efekt przycisku
-function glitchClick(btn){
-    btn.classList.add("glitch-click");
-    setTimeout(()=> btn.classList.remove("glitch-click"), 200);
-}
-
-// Dodaj glitch do wszystkich przycisków z data-i18n
-document.querySelectorAll("button[data-i18n]").forEach(btn => {
-    btn.addEventListener("click", () => glitchClick(btn));
-});
-// Terminal Montauk
+// TERMINAL
 const terminalOutput = document.getElementById("terminal-output");
-const terminalInput = document.getElementById("terminal-input");
-
-// Komendy w obu językach
-const terminalCommands = {
-    en: {
-        help: "Available commands: help, about, timeline, decrypt, whoami, logout",
-        about: texts.en.about_1 + "\n" + texts.en.about_2 + "\n" + texts.en.about_3,
-        timeline: texts.en.time1 + "\n" + texts.en.time2 + "\n" + texts.en.time3 + "\n" + texts.en.time4 + "\n" + texts.en.time5,
-        decrypt: "File_1983 decrypted. Access granted.",
-        whoami: "You are an Observer of Project Montauk.",
-        logout: "Logging out..."
-    },
-    pl: {
-        help: "Dostępne komendy: help, about, timeline, decrypt, whoami, logout",
-        about: texts.pl.about_1 + "\n" + texts.pl.about_2 + "\n" + texts.pl.about_3,
-        timeline: texts.pl.time1 + "\n" + texts.pl.time2 + "\n" + texts.pl.time3 + "\n" + texts.pl.time4 + "\n" + texts.pl.time5,
-        decrypt: "Plik_1983 odszyfrowany. Dostęp przyznany.",
-        whoami: "Jesteś Obserwatorem Projektu Montauk.",
-        logout: "Wylogowywanie..."
-    }
-};
-
-// Funkcja wyświetlająca wiadomość w terminalu
-function terminalPrint(msg){
-    const p = document.createElement("p");
-    p.innerText = msg;
-    terminalOutput.appendChild(p);
-    terminalOutput.scrollTop = terminalOutput.scrollHeight;
-}
-
-// Obsługa Enter w terminalu
-terminalInput.addEventListener("keydown", e => {
+document.getElementById("terminal-input").addEventListener("keydown", (e)=>{
     if(e.key === "Enter"){
-        const input = terminalInput.value.trim().toLowerCase();
-        terminalInput.value = "";
+        const input = e.target.value.trim();
+        if(!input) return;
+        addTerminalLine("> " + input);
 
-        const commands = terminalCommands[lang]; // Pobiera aktualny język
-
-        if(input in commands){
-            terminalPrint("> " + input);
-            terminalPrint(commands[input]);
-            if(input === "logout") document.getElementById("secret").classList.add("hidden");
-        } else {
-            terminalPrint("> " + input);
-            terminalPrint(lang === "pl" ? "Nieznana komenda" : "Unknown command");
+        switch(input.toLowerCase()){
+            case "help":
+                addTerminalLine("Available commands: help, clear, exit, about, theories, timeline, secret, contact, aliens, experiments, mindcontrol");
+                break;
+            case "clear":
+                terminalOutput.innerHTML = "";
+                break;
+            case "exit":
+                addTerminalLine("Exiting terminal...");
+                document.getElementById("secret").classList.add("hidden");
+                document.getElementById("verify-btn").style.display = "inline-block";
+                document.getElementById("code").style.display = "inline-block";
+                break;
+            case "about":
+                addTerminalLine(texts[lang].about_1);
+                addTerminalLine(texts[lang].about_2);
+                addTerminalLine(texts[lang].about_3);
+                break;
+            case "theories":
+                addTerminalLine(texts[lang].t1_title + ": " + texts[lang].t1_text);
+                addTerminalLine(texts[lang].t2_title + ": " + texts[lang].t2_text);
+                addTerminalLine(texts[lang].t3_title + ": " + texts[lang].t3_text);
+                addTerminalLine(texts[lang].t4_title + ": " + texts[lang].t4_text);
+                addTerminalLine(texts[lang].t5_title + ": " + texts[lang].t5_text);
+                addTerminalLine(texts[lang].t6_title + ": " + texts[lang].t6_text);
+                addTerminalLine(texts[lang].t7_title + ": " + texts[lang].t7_text);
+                addTerminalLine(texts[lang].t8_title + ": " + texts[lang].t8_text);
+                break;
+            case "timeline":
+                addTerminalLine(texts[lang].time1);
+                addTerminalLine(texts[lang].time2);
+                addTerminalLine(texts[lang].time3);
+                addTerminalLine(texts[lang].time4);
+                addTerminalLine(texts[lang].time5);
+                break;
+            case "secret":
+                addTerminalLine("Accessing hidden Montauk archives...");
+                addTerminalLine("Classified documents require higher clearance.");
+                break;
+            case "contact":
+                addTerminalLine("For inquiries, contact the Montauk Research Unit.");
+                addTerminalLine("Email: montauk@archive.gov (not real!)");
+                break;
+            case "aliens":
+                addTerminalLine("Investigating UFO sightings and alien technology...");
+                break;
+            case "experiments":
+                addTerminalLine("Listing known experimental programs: Mind Control, Genetic, Time Travel.");
+                break;
+            case "mindcontrol":
+                addTerminalLine("Montauk Project allegedly conducted mind control experiments on subjects.");
+                break;
+            default:
+                addTerminalLine("Unknown command: " + input + ". Type 'help' for a list of commands.");
         }
+
+        e.target.value = "";
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
     }
 });
 
-// Fokus na input po odsłonięciu terminala
-function unlock(){
-    if(document.getElementById("code").value.toLowerCase()==="montauk1983"){
-        const sec = document.getElementById("secret");
-        sec.classList.remove("hidden");
-        terminalInput.focus();
-    }
+function addTerminalLine(text){
+    const div = document.createElement("div");
+    div.textContent = text;
+    terminalOutput.appendChild(div);
 }
-
-// Przy zmianie języka - czyści terminal i resetuje język
-function refreshTerminalLanguage(){
-    terminalOutput.innerHTML = "";
-}
-
-// Dodanie glitch efektu przy przyciskach językowych
-document.querySelectorAll(".lang-switch button").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const langAttr = btn.dataset.lang; 
-        setLang(langAttr);
-        glitchClick(btn); // glitch efekt przy zmianie języka
-        refreshTerminalLanguage(); // czyści terminal po zmianie języka
-    });
-});

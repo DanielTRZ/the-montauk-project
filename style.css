@@ -1,43 +1,66 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* BODY */
 body {
     font-family: "Share Tech Mono", monospace;
-    background: #050505;
+    background-color: #050505;
     color: #00ff9c;
+    line-height: 1.5;
+    font-size: 18px;
 }
 
+/* SCANLINES */
 .scanlines {
     position: fixed;
     inset: 0;
     background: repeating-linear-gradient(
         to bottom,
-        rgba(255,255,255,0.03),
-        rgba(0,0,0,0.03) 2px
+        rgba(255, 255, 255, 0.03),
+        rgba(0, 0, 0, 0.03) 2px
     );
     pointer-events: none;
     z-index: 999;
+    animation: scanlineMove 2s linear infinite;
+}
+@keyframes scanlineMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100px; }
 }
 
+/* LANGUAGE SWITCH */
 .lang-switch {
     position: fixed;
     top: 10px;
     right: 10px;
+    display: flex;
+    gap: 5px;
+    z-index: 100;
 }
 
 .lang-switch button {
-    background: black;
+    background: #000;
     border: 1px solid #00ff9c;
     color: #00ff9c;
-    padding: 5px 10px;
+    padding: 6px 12px;
     cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
 }
 
+.lang-switch button:hover {
+    background: #00ff9c;
+    color: #000;
+    box-shadow: 0 0 5px #00ff9c, 0 0 10px #00ff9c;
+}
+
+/* HERO SECTION */
 .hero {
     height: 100vh;
     display: flex;
@@ -45,92 +68,72 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 0 20px;
+    background: linear-gradient(to bottom, #1a001a, #050505);
+
 }
 
-section {
-    padding: 80px 10%;
+.hero h1 {
+    font-size: 58px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff9c;
 }
 
-.card {
-    border: 1px solid #00ff9c;
-    padding: 20px;
-    margin-bottom: 15px;
+.hero p {
+    font-size: 26px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #00ff9c;
 }
 
-.terminal {
-    border: 1px solid red;
-    color: red;
-    padding: 20px;
-    margin-top: 20px;
-    background: black;
-}
-
-.hidden {
-    display: none;
-}
-
-footer {
-    text-align: center;
-    border-top: 1px solid #00ff9c;
-    padding: 20px;
-}
-/* Przyciski w stylu terminala / cyberpunk */
+/* BUTTONS */
 button[data-i18n] {
     background: transparent;
     border: 1px solid #00ff9c;
     color: #00ff9c;
     font-family: "Share Tech Mono", monospace;
-    font-size: 16px;
-    padding: 8px 16px;
+    font-size: 18px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: 0.2s all;
+    transition: all 0.2s ease;
+    border-radius: 5px;
 }
-
-
-
 
 button[data-i18n]:hover {
-    background: #00ff9c;
+    background: #00fff0;
     color: #000;
-    box-shadow: 0 0 10px #00ff9c, 0 0 20px #00ff9c;
-}
-/* Efekt glitch po kliknięciu */
-button[data-i18n].glitch-click {
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 10px #00fff0, 0 0 20px #00fff0;
+   }
+
+/* SECTIONS */
+section {
+    padding: 80px 10%;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin-bottom: 30px;
 }
 
-button[data-i18n].glitch-click:active {
-    animation: glitchAnim 0.3s ease-in-out;
+section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #00ff9c;
 }
 
-@keyframes glitchAnim {
-    0% {
-        transform: translate(0px, 0px);
-        color: #00ff9c;
-        text-shadow: none;
-    }
-    25% {
-        transform: translate(-2px, 1px);
-        color: #ff005c;
-        text-shadow: 1px 0 #00fff0;
-    }
-    50% {
-        transform: translate(2px, -1px);
-        color: #00fff0;
-        text-shadow: -1px 0 #ff005c;
-    }
-    75% {
-        transform: translate(-1px, 2px);
-        color: #ff00f0;
-        text-shadow: 1px 1px #00ff9c;
-    }
-    100% {
-        transform: translate(0px, 0px);
-        color: #00ff9c;
-        text-shadow: none;
-    }
+section p {
+    margin-bottom: 15px;
+    font-size: 18px;
 }
+
+/* CARDS */
+.card {
+    border: 1px solid #00ff9c;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px #00ff9c inset;
+}
+
+/* ABOUT IMAGES */
 .about-images {
     display: flex;
     flex-wrap: wrap;
@@ -145,11 +148,102 @@ button[data-i18n].glitch-click:active {
     border: 2px solid #00ff9c;
     border-radius: 8px;
     box-shadow: 0 0 10px #00ff9c;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(0.9) contrast(1.2);
 }
 
 .about-images img:hover {
     transform: scale(1.05) rotate(-1deg);
 }
 
+/* TERMINAL */
+.terminal {
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    padding: 20px;
+    margin-top: 30px;
+    background: #000;
+    border-radius: 6px;
+}
+
+.hidden {
+    display: none;
+}
+
+#terminal-output {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    font-family: "Share Tech Mono", monospace;
+}
+
+#terminal-input {
+    width: 100%;
+    background: #000;
+    color: #00ff9c;
+    border: 1px solid #00ff9c;
+    padding: 10px;
+    font-family: "Share Tech Mono", monospace;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+/* HINT */
+#hint {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ff0000;
+    color: #fff;
+    font-family: "Share Tech Mono", monospace;
+    padding: 20px 40px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid white;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000 inset;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid #00ff9c;
+    font-size: 18px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 16px; }
+    section { padding: 50px 5%; }
+    .about-images { gap: 10px; }
+    .about-images img { max-width: 90%; }
+}
+
+@media (max-width: 480px) {
+    .hero h1 { font-size: 28px; }
+    .hero p { font-size: 14px; }
+    button[data-i18n] { padding: 8px 16px; font-size: 14px; }
+    section { padding: 40px 5%; }
+}
+
+
+section p {
+    margin-bottom: 15px;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.3); /* półprzezroczysty box */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#access h2 {
+    font-size: 30px;
+    color: red;        /* stonowana zieleń terminalowa */
+    text-shadow: 0 0 5px red;
+    margin-bottom: 20px;
+}
 
