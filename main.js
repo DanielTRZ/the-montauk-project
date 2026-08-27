@@ -5,7 +5,6 @@
 
 
 
-
 let score = 0;
 let lang = "pl";
 
